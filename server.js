@@ -26,10 +26,10 @@ app.use((request , response , next) => {
     
 }) ;
 
-app.use((request , response , next) => {
-    
-   response.render('maintenance.hbs');
-}) ;
+//app.use((request , response , next) => {
+//
+//   response.render('maintenance.hbs');
+//}) ;
 
 hbs.registerHelper('getCurrentYear' , () => { 
     return new Date().getFullYear()
@@ -63,6 +63,14 @@ app.get( '/bad' , (request,response) => {
         errorMessage : 'Unable to handle request' 
     });
     
+} ) ;
+
+app.get( '/projects' , (request,response) => {
+
+    response.render('projects.hbs' , {
+        pageTitle : 'Projects'
+    });
+
 } ) ;
 
 app.listen(port,( ) => {
